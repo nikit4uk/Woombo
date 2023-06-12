@@ -1,0 +1,83 @@
+@import './style.scss';
+
+footer.footer{
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    padding: 47px 0 37px;
+    background-color: #0A0A0A;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .footer-logo{
+            height: 27px;
+            filter: brightness(0) invert(1);
+        }
+        .footer-menu{
+            ul{
+                display: flex;
+                gap: 32px;
+                li.footer-menu-items{
+                    list-style: none;
+                    padding: 10px 0 0;
+                    .menu-link{
+                        display: block;
+                        width: 53px;
+                        text-align: center;
+                        font-size: 18px;
+                        font-weight: 400;
+                        color: $WhiteColor;
+                        &:hover{
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .copyright{
+        font-size: 15px;
+        font-weight: 300;
+        color: $WhiteColorSemitransparent;
+        text-align: center;
+        .mob-br{
+            display: none;
+        }
+    }
+}
+
+// Adaptive
+@media screen and (max-width:1420px) {}
+@media screen and (max-width:1280px) {}
+@media screen and (max-width:1024px) {}
+@media screen and (max-width:768px) {}
+@media screen and (max-width:650px) {
+    footer.footer{
+        gap: 75px;
+        padding-top: 73px;
+        .container{
+            flex-direction: column;
+            .footer-logo{
+                margin-bottom: 75px;
+            }
+            .footer-menu{
+                margin-bottom: 79px;
+                ul{
+                    flex-direction: column;
+                    gap: 54px;
+                    li.footer-menu-items{
+                        padding-top: 6px;
+                    }
+                }
+            }
+        }
+        .copyright{
+            .mob-br{
+                display: contents;
+            }
+        }
+    }
+}
+  
+// END Adaptive

@@ -1,0 +1,228 @@
+@import './style.scss';
+
+#blog{
+    position: relative;
+    padding: 140px 0 127px;
+    &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0; bottom: 0;
+        left: 0; right: 0;
+        background-image: url('../img/blog-background.webp');
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    .container{
+        .section-title{
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 46px;
+            color: $WhiteColor;
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        .section-subtitle{
+            @include RegularText;
+            text-align: center;
+        }
+        .posts{
+            margin-top: 72px;
+            .posts-wrap{
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                padding-bottom: 37px;
+                @include RegularTransition;
+                article.post{
+                    border: 1px solid #262626;
+                    border-radius: 10px;
+                    min-width: 345px;
+                    background-color: $BlackColor;
+                    padding: 15px 15px 23px;
+                    @include RegularTransition;
+                    .post_image{
+                        width: 100%;
+                        margin-bottom: 12px;
+                        aspect-ratio: 4/2.75;
+                        object-fit: cover;
+                    }
+                    .post_category{
+                        font-size: 15px;
+                        font-weight: 800;
+                        margin-bottom: 5px;
+                        &.post_category-news{
+                            color: $RedColor;
+                        }
+                        &.post_category-support{
+                            color: $GreanColor;
+                        }
+                    }
+                    .post_title{
+                        @include RegularSubtitle;
+                        line-height: 24px;
+                        color: $WhiteColor;
+                        margin-bottom: 12px;
+                    }
+                    .post_content{
+                        font-size: 15px;
+                        font-weight: 300;
+                        line-height: 22px;
+                        color: $WhiteColorSemitransparent;
+                        margin-bottom: 15px;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                        text-overflow: ellipsis;
+                        -webkit-box-line-clamp: 3;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        max-height: 4.3em;
+                        overflow: hidden;
+                    }
+                    .post_btn{
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        width: fit-content;
+                        font-size: 15px;
+                        font-weight: 300;
+                        line-height: 22px;
+                        color: $WhiteColor;
+                        @include RegularTransition;
+                        svg path{
+                            @include RegularTransition;
+                        }
+                        &:hover{
+                            color: $AccentColor;
+                            svg{
+                                path{
+                                    stroke: $AccentColor;
+                                }
+                                    
+                            }
+                        }
+                    }
+                    &:hover{
+                        background: #0C0B1B;
+                    }
+                }
+            }
+        }
+        .posts_dots{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            opacity: 0;
+            span{
+                display: block;
+                position: relative;
+                width: 7px;
+                height: 7px;
+                border-radius: 7px;
+                background-color: $WhiteColor;
+                opacity: .5;
+                @include RegularTransition;
+                &.active{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .blog_tube_1,
+    .blog_tube_2{
+        display: block;
+        position: absolute;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        &::before {
+            content: "";
+            display: block;
+            padding-top: 100%; /* Задаємо відсоткову висоту, що дорівнює ширині */
+        }
+    }
+    .blog_tube_1{
+        width: 156px;
+        top: 0;
+        left: 30%;
+        background-image: url('../img/Hero\ Tube\ 1.svg');
+        @include horizontalTransition;
+    }
+    .blog_tube_2{
+        width: 156px;
+        bottom: 5%;
+        right: 30%;
+        background-image: url('../img/Hero\ Tube\ 2.svg');
+        @include diagonalTransition;
+    }
+}
+
+// Adaptive
+@media screen and (max-width:1440px) {}
+@media screen and (max-width:1280px) {}
+@media screen and (max-width:1024px) {}
+@media screen and (max-width:768px) {
+    #blog{
+        padding: 38px 0 70px;
+        &:before{
+            max-height: 400px;
+            background-position: bottom left;
+        }
+        .container{
+            .posts{
+                .posts-wrap{
+                    article.post{
+                        min-width: calc(100vw - 30px);
+                    }
+                }
+                .posts_dots{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:650px) {
+    #blog{
+        &:before{
+            max-height: none;
+            background-image: url('../img/blog-mob-background.webp');
+            background-size: 100%;
+        }
+        .container{
+            .section-title{
+                font-size: 24px;
+            }
+            .section-subtitle{
+                font-size: 15px;
+                font-weight: 300;
+            }
+            .posts{
+                .posts-wrap{
+                    padding-bottom: 70px;
+                    article.post{
+                        width: 100%;
+                        .post_image{
+                            margin-bottom: 4px;
+                        }
+                        .post_title{
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+        .blog_tube_1{
+            display: none;
+        }
+        .blog_tube_2{
+            bottom: -5%;
+            left: -5%;
+        }
+    }
+}
+  
+// END Adaptive

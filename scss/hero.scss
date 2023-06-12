@@ -1,0 +1,197 @@
+@import './style.scss';
+
+#hero{
+    position: relative;
+    min-height: 100vh;
+    padding: 195px 0 150px;
+    background: linear-gradient(180deg, #3D11B4 0%, $BlackColor 100%);
+    &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0; bottom: 0;
+        left: 0; right: 0;
+        background-image: url('../img/hero-background.webp');
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .container{
+        display: flex;
+        align-items: center;
+        gap: 80px;
+        .main-info,
+        .main-pic{
+            width: 50%; 
+        }
+        .main-info{
+            margin-left: 14px;
+            .main-info__title{
+                @include RegularTitle;
+                line-height: 65px;
+                padding-bottom: 21px; 
+            }
+            .main-info__description{
+                @include RegularText;
+                line-height: 30px;
+                padding-bottom: 54px;
+            }
+            .btn{
+                width: 210px;
+                text-align: center;
+            }
+        }
+        .main-pic{
+            position: relative;
+            margin-right: -10px;
+            .main-pic__nft{
+                width: 100%;
+            }
+            .hero_ring,
+            .hero_spring_2{
+                display: block;
+                position: absolute;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                &::before {
+                    content: "";
+                    display: block;
+                    padding-top: 100%; /* Задаємо відсоткову висоту, що дорівнює ширині */
+                }
+            }
+            .hero_ring{
+                width: 156px;
+                top: -50px;
+                right: -70px;
+                background-image: url('../img/Hero\ NFT\ Ring.svg');
+                @include verticalTransition;
+            }
+            .hero_spring_2{
+                width: 156px;
+                bottom: 50px;
+                left: -100px;
+                background-image: url('../img/Hero\ NFT\ Spring\ 2.svg');
+                @include verticalTransition;
+            }
+        }
+    }
+    .hero_tube_1,
+    .hero_spring_1,
+    .hero_tube_2{
+        display: block;
+        position: absolute;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        &::before {
+            content: "";
+            display: block;
+            padding-top: 100%; /* Задаємо відсоткову висоту, що дорівнює ширині */
+        }
+    }
+    .hero_tube_1{
+        width: 156px;
+        top: 0;
+        right: 50%;
+        background-image: url('../img/Hero\ Tube\ 1.svg');
+        @include diagonalTransition;
+    }
+    .hero_spring_1{
+        width: 20vw;
+        min-width: 260px;
+        top: 5%;
+        left: 3%;
+        background-image: url('../img/Hero\ Spring\ 1.svg');
+        @include horizontalTransition;
+    }
+    .hero_tube_2{
+        width: 156px;
+        bottom: 5%;
+        left: 10%;
+        background-image: url('../img/Hero\ Tube\ 2.svg');
+        @include diagonalTransition;
+    }
+}
+
+// Adaptive
+@media screen and (max-width:1440px) {}
+@media screen and (max-width:1280px) {}
+@media screen and (max-width:1024px) {}
+@media screen and (max-width:768px) {
+    #hero{
+        padding: 177px 0 100px;
+        &:before{
+            max-height: 400px;
+            background-position: top right;
+        }
+        .container{
+            flex-wrap: wrap;
+            .main-info,
+            .main-pic{
+                width: 100%; 
+            }
+            .main-info{
+                margin-left: 0px;
+            }
+            .main-pic{
+                margin-left: 0px;
+            }
+        }
+    }
+}
+@media screen and (max-width:650px) {
+    #hero{
+        &:before{
+            max-height: none;
+            background-image: url('../img/hero-mob-background.webp');
+            background-size: 100%;
+        }
+        .container{
+            .main-info{
+                .main-info__title{
+                    font-size: 30px;
+                    line-height: 42px;
+                }
+                .main-info__description{
+                    font-size: 15px;
+                    font-weight: 300;
+                    line-height: 22px;
+                    span.br{
+                        display: none;
+                    }
+                }
+                .btn{
+                    width: 100%;
+                }
+            }
+            .main-pic{
+                .hero_ring{
+                    width: 90px;
+                    top: -50px;
+                    right: -50px;
+                }
+                .hero_spring_2{
+                    display: none;
+                }
+            }
+        }
+        .hero_tube_1{
+            width: 156px;
+            top: 0;
+            right: 0%;
+            background-image: url('../img/Hero\ Tube\ 1.svg');
+            @include diagonalTransition;
+        }
+        .hero_spring_1{
+            top: 0%;
+            left: -30%;
+        }
+        .hero_tube_2{
+            bottom: 10%;
+            left: -5%;
+        }
+    }
+}
+  
+// END Adaptive

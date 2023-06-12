@@ -1,0 +1,57 @@
+@import './style.scss';
+
+header.header{
+    position: fixed;
+    top: 0;
+    left: 0; right: 0;
+    z-index: 555;
+    @include RegularTransition;
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 32px;
+        padding-bottom: 32px;
+        @include RegularTransition;
+        .header-logo{
+            height: 27px;
+        }
+    }
+    &.page-scrolled{
+        background-color: $BlackColor;
+        .container{
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+    }
+}
+
+// Adaptive
+@media screen and (max-width:768px) {
+    header.header{
+        .container{
+            padding-top: 24px;
+            padding-bottom: 24px;
+            .btn{
+                display: none;
+            }
+        }
+        &.page-scrolled{
+            .container{
+                padding-top: 18px;
+                padding-bottom: 18px;
+            }
+        }
+    }
+}
+@media screen and (max-width:650px) {
+    header.header{
+        .container{
+            .header-logo{
+                height: 22px;
+            }
+        }
+    }
+}
+  
+// END Adaptive

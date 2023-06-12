@@ -1,0 +1,169 @@
+// Variables
+$WhiteColor: #FFFFFF;
+$WhiteColorSemitransparent: #FFFFFF80;
+$BlackColor: #000000;
+$AccentColor: #9B51E0;
+$DarkColor: #262626;
+$DarkBlueColor: #0C0B1B;
+$GreanColor: #00BA61;
+$RedColor: #BA0001;
+
+// END Variables
+
+// Mixin
+@mixin RegularTitle() {
+    font-size: 50px;
+    font-weight: 700;
+    color: $WhiteColor;
+}
+@mixin RegularSubtitle() {
+    font-size: 18px;
+    font-weight: 700;
+    color: $WhiteColor;
+}
+@mixin RegularText() {
+    font-size: 18px;
+    font-weight: 400;
+    color: $WhiteColorSemitransparent;
+}
+@mixin RegularTransition() {
+    transition: all ease-in-out .3s;
+}
+@mixin diagonalTransition() {
+    animation: diagonalTransition linear 7s infinite reverse;
+}
+@mixin verticalTransition() {
+    animation: verticalTransition linear 7s infinite reverse;
+}
+@mixin horizontalTransition() {
+    animation: horizontalTransition linear 7s infinite reverse;
+}
+  
+// END Mixin
+
+// Nulling styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body{
+    background: $BlackColor;
+    overflow-x: hidden;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+a{
+    text-decoration: none;
+}
+
+// END nulling styles
+
+// Container
+.container{
+    position: relative;
+    width: 1220px;
+    margin: 0 auto;
+}
+  
+// END Container
+
+// Btn
+.btn{
+    display: block;
+    position: relative;
+    font-size: 16px;
+    font-weight: 700;
+    color: $WhiteColorSemitransparent;
+    padding: 18px 24px;
+    background: linear-gradient(103.91deg, $AccentColor -21.01%, $AccentColor 21.01%, rgba(48, 129, 237, 0.8) 100%);
+    background-size: 100% 100%;
+    border-radius: 30px;
+    @include RegularTransition;
+    &:hover{
+        color:$WhiteColor;
+        background-size: 250% 100%;
+    }
+}
+  
+// END Btn
+
+// Animation
+@keyframes diagonalTransition {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    33% {
+        transform: translate(20px, 20px);
+    }
+    66% {
+        transform: translate(40px, 10px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+@keyframes verticalTransition {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    50% {
+        transform: translate(0px, 40px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+@keyframes horizontalTransition {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    50% {
+        transform: translate(40px, 0px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+// END Animation
+
+// Adaptive
+@media screen and (max-width:1420px) {
+    .container{
+        width: 1220px;
+    }
+}
+@media screen and (max-width:1280px) {
+    .container{
+        width: 100%;
+        padding: 40px;
+    }
+}
+@media screen and (max-width:1024px) {}
+@media screen and (max-width:768px) {
+    .container{
+        padding: 0 15px;
+    }
+}
+@media screen and (max-width:650px) {
+    .btn{
+        width: 100%;
+        font-size: 18px;
+        text-align: center;
+        color: $WhiteColor;
+        padding: 24px;
+    }
+}
+  
+// END Adaptive
