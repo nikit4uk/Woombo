@@ -27,12 +27,10 @@
             @include RegularText;
             text-align: center;
         }
-        .posts{
+        .swiper{
             margin-top: 72px;
-            .posts-wrap{
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
+            overflow: hidden;
+            .swiper-wrapper{
                 padding-bottom: 37px;
                 @include RegularTransition;
                 article.post{
@@ -110,22 +108,15 @@
                 }
             }
         }
-        .posts_dots{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-            opacity: 0;
-            span{
-                display: block;
-                position: relative;
+        .swiper-pagination{
+            .swiper-pagination-bullet{
                 width: 7px;
                 height: 7px;
                 border-radius: 7px;
                 background-color: $WhiteColor;
                 opacity: .5;
                 @include RegularTransition;
-                &.active{
+                &.swiper-pagination-bullet-active{
                     opacity: 1;
                 }
             }
@@ -171,18 +162,6 @@
             max-height: 400px;
             background-position: bottom left;
         }
-        .container{
-            .posts{
-                .posts-wrap{
-                    article.post{
-                        min-width: calc(100vw - 30px);
-                    }
-                }
-                .posts_dots{
-                    opacity: 1;
-                }
-            }
-        }
     }
 }
 @media screen and (max-width:650px) {
@@ -200,18 +179,9 @@
                 font-size: 15px;
                 font-weight: 300;
             }
-            .posts{
-                .posts-wrap{
-                    padding-bottom: 70px;
-                    article.post{
-                        width: 100%;
-                        .post_image{
-                            margin-bottom: 4px;
-                        }
-                        .post_title{
-                            font-size: 16px;
-                        }
-                    }
+            .swiper{
+                .swiper-wrapper{
+                    padding-bottom: 70px;                    
                 }
             }
         }
