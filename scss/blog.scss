@@ -36,7 +36,7 @@
                 article.post{
                     border: 1px solid #262626;
                     border-radius: 10px;
-                    min-width: 345px;
+                    // min-width: 345px;
                     background-color: $BlackColor;
                     padding: 15px 15px 23px;
                     @include RegularTransition;

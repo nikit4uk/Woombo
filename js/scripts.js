@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
             autoplay: false,
           },
           1024: {
-            slidesPerView: 2,
+            slidesPerView: 3,
           },
         },
       });

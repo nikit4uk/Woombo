@@ -725,7 +725,6 @@ a {
 #blog .container .swiper .swiper-wrapper article.post {
   border: 1px solid #262626;
   border-radius: 10px;
-  min-width: 345px;
   background-color: #000000;
   padding: 15px 15px 23px;
   transition: all ease-in-out 0.3s;
